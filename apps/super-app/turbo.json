@@ -1,0 +1,10 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "storybook": {
+      "dependsOn": ["^dev"],
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

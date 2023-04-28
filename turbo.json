@@ -1,0 +1,27 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+    },
+    "build-storybook": {
+      "dependsOn": ["^build"], // before build-storybook, build all dependencies which we most likely import in the storybooks
+      "outputs": ["storybook-static/**"]
+    },
+    "lint": {},
+    "check-types": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "acme-super-app:storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
